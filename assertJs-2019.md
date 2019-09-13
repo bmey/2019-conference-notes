@@ -46,16 +46,17 @@ PR template
   - test these changes?
   - can this be rolled back?
 
-
 tape bot posts automated comments to add context
+
 we test like crazy
+
 we code review
 
-`dev tophat push`
-`dev tophat pull`
-`dev tophat stop`
-`dev ios tophat XXX` = run on local simulator, too
-associated w PR, can use state of machine from PR
+- `dev tophat push`
+- `dev tophat pull`
+- `dev tophat stop`
+- `dev ios tophat XXX` = run on local simulator, too
+- associated w PR, can use state of machine from PR
 
 ### deploying to prod
 - "shipit" tool (merge queue)
