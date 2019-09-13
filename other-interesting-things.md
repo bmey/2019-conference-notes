@@ -11,3 +11,11 @@ go see paul/team for letscodejavascript discount (50%)
 - shopify had the culture in place years before he joined
 - saw attempts at improving culture fail bc if only tackle from one angle, usually gets squashed or rejected
 - VR team that does whiteboard sessions in VR room, can see others and interact with their avatars
+
+
+# chat w apple dev
+app store connect
+separate cultures, still have "front end" meet ups
+behind on build tools and tech, lots of hoops to jump through
+learn about different things
+
