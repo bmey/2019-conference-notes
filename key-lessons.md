@@ -1,66 +1,15 @@
-# assert js
-
-## Invest in improvements
-### Scaling R&D without dedicated QA (Adam Archer - Shopify)
-When things are hard or going wrong, **invest.** Create projects to improve.
-(my takeaway) create a learning culture and organization
-
-## TDD
-### jim shore
+# TDD
 - TDD is less about testing and more about having control and understanding of your code.
 - Experiment, get feedback, learn, and adapt.
-
-### How to build the TDD habit in your team - Ryan Marsh
 - emotional and habitual, not based on logical choices
   - basal ganglia - where habits are stored
 - cue > routine > reward
   - conway's game of life exercise
   - delete your code! (remove the reward)
-  - bell throughout the day, then 3 minute TDD cycle
-- the key to running a successful TDD workshop is to not tell them it's a TDD workshop
-
-### Component-driven design & viz test coverage - Michael Shilman (chroma)
-- ui states are combinatorial
-- break down designs into components
-- catalog relevant states for each component as a story
-- build out components __in isolation__
-- recompose components into screens
-- ^ this is actually testing
-
-### other things
 - gobal day of code retreat (coderetreat.org)
 - practice TDD as a community
 
-
-## Test maintenance
-### old solutions to new problems - josh justice (big nerd ranch)
-The problem now is test maintainability. Let's talk in patterns, and take advantage of our rich testing history.
-
-"xUnit test patterns (refactoring test code)" by Gerard Meszaros
-
-5 warning signs
-- using conditionals in tests
-- mystery guests (setup abstracted away)
-- irrelevant information
-- interacting tests
-- production logic in tests
-
-### tests > types - Colin Ihrig (Joyent)
-there are tradeoffs for types that most devs and project managers don't consider
-- types add verbosity & complexity
-- a language is a big dependency, their bugs are now your bugs
-- "The TypeScript Tax"
-- can still provide a type declaration file (.d.ts)
-
-### Integration testing w Cypress - Nancy Du (rangle.io)
-- integration tests can be hard for stakeholders to understand
-- mocks become difficult to setup + maintain
-
-suggestions
-- write based on AC of user stories
-- auto-record real responses to test APIs to make managing mocks easier to maintain
-
-### test flakiness - jason palmer (spotify)
+# test flakiness
 - cost of flakiness
   - time & money (retriggering ci builds, local builds, etc)
   - loss of confidence (resort to manual verification)
@@ -72,132 +21,93 @@ suggestions
     2. (the most Ok) record test results for every master commit
     3. (the most badass) run each changed test 3-5 times and calculate test coverage delta between each run
 
+# Pushing Through Friction
+- lies within the gaps between how things are and how they should be
 
-# web unleashed
+## dev divide
+- we're still browser people who are the shepherds of design, ux, perf, and a11y
+- "care about users and deal with the browsers, users, and devices"
+- the great divide (in the web community) - css tricks
+  - specializing is okay
+  - lots of tweets about what's wrong with the web
+  - blame on both sides
+  - we created the divide on the tech
 
-## oops I guess we're full stack - chris coiyer
-"care about users and deal with the browsers, users, and devices"
-the great divide, specializing is okay
+## dev culture and experience
+"if only we did this one 'obvious to me' thing, it'd be better"
+"normalization of deviance"
+friction mostly painful for mid-sized companies
 
-## Dynamic Typographic Systems, Modern CSS, and Variable Fonts - Jason Pamental
-most common interface w user is *words*
+pushing through this friciton is worth it, often people will leave to avoid these problems, but that means there is friction everywhere
 
-type is the voice of our words, how we 'hear' what we read
+push through with optimism and kindness
 
-key css features
-- css custom props/variables
-- calculations
-- variable fonts
-- ^ using them together
+- doc sources of truth and keep them updated
+- avoid single points of failure
+- create culture of documentation (make this part of AC)
+- ask new hires after starting - how could this be better, what's missing, what have you seen work better elsewhere?
 
-### "design can reduce friction"
-- variable font = single font file that behaves like multiple fonts
-- accessibility (dark mode, high-contrast, line spacing, word spacing)
+there's often the correct path and the easy path. take the correct path because it will lead to to better outcomes
+
+- ! stack is not technology, but people, process, and tech
+- how to give people room to experiment/grow? ask for business cases, build prototypes
+- friendly readmes, changelogs (even for projects), templates, automate setup
+- more important to stay consistent than use latest and greatest
+"you don't have to play with all the toys", maybe you don't need it
+- don't over-engineer
+- avoid the hype machine
+
+When things are hard or going wrong, **invest.** Create projects to improve.
+(my takeaway) create a learning culture and organization
+
+# user empathy
+1. insulate customer from complexity
+
+can use variable fonts to create interesting and engaging designs, but also user choice
   - dyslexia -- increase line space can increase their reading retention by 50%
 
-### transfer friction: intentional tension
-Misconception that if users presented with slightest challenge, they are gone. Sometimes typography needs to be challenging, force you to stop and figure it out. "Design is communication" 
+## a11y
+common perception that you can do a11y by accident, this doesn't make sense
+experience not considered in this case
+fixing anything after the product was built (including a11y) is expensive
 
-get away from one-layout solutions
-- all content in medium/facebook/ny times looks the same
-- multiple templates per site (standard, editorial layout #1/#2)
+## give users choice
+FOUC, death of progressive enhancement
+FOUC
+- FOIT (invisible text)
+- FOUT (unstyled text)
+- FUBC (unbehaviored content)
 
+conflating what is good for the user is what is good developers?
+we feel good about the stuff we create, at best our users **tolerate** what we create
 
-## Slashing Bad User Experience Using DevTools - Henri Helvetica
-everyone is responsible for performance
+https://www.youtube.com/watch?v=_cMLVqyYCzU&t=1209
+"I can't watch this video, what's wrong with this picture?"
 
-tools
-- FF beta: inactive CSS
-- network panel
-  - filter can take conditions. e.g. >10kb
-  - gear > use large request rows
-    - can see if resource being compressed (gzip/brotli)
-  - filmstrip with timestamp and page view changes
-- lighthouse
-  - "opportunities" tab contains useful suggestions for fixes
-  - chrome extension + CLI tools
+Is "No JS a relevant use case?" no >> "For your web experience, is there a reasonable and useful experience that does not require JS?"
+  - no JS doesn't make sense for 3D shooter game
 
-## Developing & Scaling Design Systems
-- material UI
-- why?
-  - consistency
+HTML design principles
+"priority of constituancies"
+https://www.w3.org/TR/html-design-principles/#priority-of-constituencies
+> In case of conflict, consider users over authors over implementors over specifiers over theoretical purity. In other words costs or difficulties to the user should be given more weight than costs to authors; which in turn should be given more weight than costs to implementors; which should be given more weight than costs to authors of the spec itself, which should be given more weight than those proposing changes for theoretical reasons alone. Of course, it is preferred to make things better for multiple constituencies at once.
 
-the ultimate goal is making something that is intuitive, users can transfer context from one area of the app to another
+imprintable design
+- user is imprinted on the experience, we need design focused on *each* person
+- instead of building in layers of technology, build in degrees of fidelity
 
-design and conversations around design are never done
+flaw: if the device can do it, the user wants it
+  - showing webGL rendered map when low connectivity and 2% battery, no way to communicate my situation
+  - how web content can affect power usage
 
-document decisions! take the system out of the heads of the people who designed it
+flaw: people always want the most powerful experience
 
-a design system only truly exists when others can use it independently of its creators
+- features have weight and consequences (for user and planet)
 
-communication breakdowns - if it's not written down, it didn't happen
+> **start building in *options*, start exposing *choices***
 
-communication, especially in a way that messages 
-  1. how systems change as scale incr
-  2. tools for managing the dev and design of system at scale
-
-## tools for managing the dev and design of system at scale
-1. develop
-1. document
-1. deploy
-
-### develop
-ideas can be abstract
-went deep with mockups, even interactions
-"the pressure test"
-  when applying to many screens, seeing where it breaks
-worked w partners on redesigns of apps (calendar, inbox)
-made sure it works for things like typography, color
-studies on material.io spec
-
-### document
-1. there's too much to capture
-1. we didn't figure it all out
-1. we don't agree on everything
-
-forces people to work through the gaps and make sure the system is strong and robust
-
-limitations of examples
-"glerb" 
-pairing an example with a counter-example is good
-examples are necessary but are not sufficient (sometimes we miss the subtle patterns)
-
-great design principles are a shortcut to fluency (vocabulary)
-design principles emerge from doing the design work
-principles don't come at beginning, should describe how the system actually works, not how you think it should
-
-e.g. MIO prin #4 one adaptive 
-e.g. #9 motion provides meaning
-material is the metaphor
-
-### deploy
-turning makers into educators
-will have people not familiar w ux or new to field
-what + why
-if can explain fundamentals, they can take them forward and teach others
-support multiple learning styles
-deep docs, live talks, podcasts, videos
-the artifact trap (perfectly organized spec)
-  runs the risk of creating false boundaries and 
-
-the more effort you put into making something "done", the more you resist change.
-
-can also impose false boundaries on your users
-key artifacts can mask the system's goals
+can we fight for the user? put their concerns first?
+we didn't ask to swap out old build for webpack, don't ask permission to make the web better
 
 
-## design systems as communication
-talk to your audience, figure out what is and isn't working
-
-modes at google
-- newsletters
-- team check ins
-- design office hours
-- launch reviews
-- triage
-
-number of users of system can be challenging and overwhelming, but start small, take first step of writing something down
-
-systems don't "succeed or fail". it is not a binary. it will work some of the time. design is never done.
-
-the impact of a design system scales with the effort you put in.
+# we're all in this together

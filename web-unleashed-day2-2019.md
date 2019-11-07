@@ -1,7 +1,7 @@
 # Pushing Through Friction - Dan Na
 "if only we did this one 'obvious to me' thing, it'd be better"
 
-talks.denielna.com
+talks.danielna.com
 @dxna
 
 spent lots of evenings feeling frustrated about work

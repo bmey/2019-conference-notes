@@ -5,7 +5,7 @@
 When things are hard or going wrong, **invest.** Create projects to improve.
 (my takeaway) create a learning culture and organization
 
-## Testing
+## TDD
 ### jim shore
 - TDD is less about testing and more about having control and understanding of your code.
 - Experiment, get feedback, learn, and adapt.
@@ -35,6 +35,8 @@ When things are hard or going wrong, **invest.** Create projects to improve.
 ## Test maintenance
 ### old solutions to new problems - josh justice (big nerd ranch)
 The problem now is test maintainability. Let's talk in patterns, and take advantage of our rich testing history.
+
+"xUnit test patterns (refactoring test code)" by Gerard Meszaros
 
 5 warning signs
 - using conditionals in tests
@@ -82,88 +84,120 @@ most common interface w user is *words*
 
 type is the voice of our words, how we 'hear' what we read
 
-- variable font = single font file that behaves like multiple fonts
-  key css features
-  - css custom props/variables
-  - calculations
-  - variable fonts
-  - ^ using them together
+key css features
+- css custom props/variables
+- calculations
+- variable fonts
+- ^ using them together
 
+### "design can reduce friction"
+- variable font = single font file that behaves like multiple fonts
 - accessibility (dark mode, high-contrast, line spacing, word spacing)
   - dyslexia -- increase line space can increase their reading retention by 50%
 
-## lighthouse
+### transfer friction: intentional tension
+Misconception that if users presented with slightest challenge, they are gone. Sometimes typography needs to be challenging, force you to stop and figure it out. "Design is communication" 
+
+get away from one-layout solutions
+- all content in medium/facebook/ny times looks the same
+- multiple templates per site (standard, editorial layout #1/#2)
+
+
+## Slashing Bad User Experience Using DevTools - Henri Helvetica
 everyone is responsible for performance
+
+tools
+- FF beta: inactive CSS
+- network panel
+  - filter can take conditions. e.g. >10kb
+  - gear > use large request rows
+    - can see if resource being compressed (gzip/brotli)
+  - filmstrip with timestamp and page view changes
 - lighthouse
   - "opportunities" tab contains useful suggestions for fixes
   - chrome extension + CLI tools
 
 ## Developing & Scaling Design Systems
 - material UI
-- why? consistency
+- why?
+  - consistency
 
 the ultimate goal is making something that is intuitive, users can transfer context from one area of the app to another
 
 design and conversations around design are never done
 
+document decisions! take the system out of the heads of the people who designed it
+
 a design system only truly exists when others can use it independently of its creators
+
+communication breakdowns - if it's not written down, it didn't happen
+
+communication, especially in a way that messages 
+  1. how systems change as scale incr
+  2. tools for managing the dev and design of system at scale
+
+## tools for managing the dev and design of system at scale
+1. develop
+1. document
+1. deploy
+
+### develop
+ideas can be abstract
+went deep with mockups, even interactions
+"the pressure test"
+  when applying to many screens, seeing where it breaks
+worked w partners on redesigns of apps (calendar, inbox)
+made sure it works for things like typography, color
+studies on material.io spec
 
 ### document
 1. there's too much to capture
 1. we didn't figure it all out
 1. we don't agree on everything
 
+forces people to work through the gaps and make sure the system is strong and robust
+
+limitations of examples
+"glerb" 
+pairing an example with a counter-example is good
+examples are necessary but are not sufficient (sometimes we miss the subtle patterns)
+
+great design principles are a shortcut to fluency (vocabulary)
+design principles emerge from doing the design work
+principles don't come at beginning, should describe how the system actually works, not how you think it should
+
+e.g. MIO prin #4 one adaptive 
+e.g. #9 motion provides meaning
+material is the metaphor
+
+### deploy
+turning makers into educators
+will have people not familiar w ux or new to field
+what + why
+if can explain fundamentals, they can take them forward and teach others
+support multiple learning styles
+deep docs, live talks, podcasts, videos
+the artifact trap (perfectly organized spec)
+  runs the risk of creating false boundaries and 
+
 the more effort you put into making something "done", the more you resist change.
 
-# Built With ❤️: Why Developer Experience Matters
-lots of companies investing in user experience, why not dev experience, too?
+can also impose false boundaries on your users
+key artifacts can mask the system's goals
 
-1. money
-2. mental energy / decision energy
-3. morale
 
-"experience lifecycle"
-- getting started
-- making first changes/use
-- day-to-day
-- retirement
+## design systems as communication
+talk to your audience, figure out what is and isn't working
 
-experience using a tool
-experience working with other developers
+modes at google
+- newsletters
+- team check ins
+- design office hours
+- launch reviews
+- triage
 
-## working with other devs
-### getting started
-friendly readmes
-automate workstation setup
+number of users of system can be challenging and overwhelming, but start small, take first step of writing something down
 
-### first commit
-templates to guide user through what we want
+systems don't "succeed or fail". it is not a binary. it will work some of the time. design is never done.
 
-### day to day
-more important to stay consistent than use latest and greatest
-keep a changelog, major changes happening to project
-
-### retirement
-retiring a project - add clear deprecation in readme
-leave project in a finished, clean, buildable state (in case  revisited in future)
-
-## experience workign tools
-  start w cli first
-  well-factored code might make it easy for others to contribute
-
-### getting started
-"how do I install this?"
-- friendly readme
-- one line installer
-- if not easy to install, put package in docker file/container w shell script
-
-### first contact
-have init experience for migrations
-
-### day to day
-meaningful error messages
-git ad . >> did you mean add?
-
-### retirement
-clear migration path to other tools
-automated migration
+the impact of a design system scales with the effort you put in.
